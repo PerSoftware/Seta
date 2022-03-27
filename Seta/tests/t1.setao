@@ -1,0 +1,48 @@
+SETA-SOC 1.9
+set numeric var1 3.14
+set numeric var2 6.28
+calc add var1 var2 var3
+calc mul var3 10 var3
+calc mul @AMS 10 var3
+calc div @AMS 2 var3
+calc sub @AMS 400 var3
+calc power @AMS 2 var3
+set cstring t1 Test Output:
+load display
+call t1
+load wrap
+call
+load ftc
+call var3 integer
+load display
+call var3
+load wrap
+call
+call
+set cstring t2 Enter:
+load display
+call t2
+
+load nInput
+set numeric input 0
+call input
+load display
+
+if input > 0
+set cstring t3 POSITIVE:
+endif
+if input = 0
+set cstring t3 ZERO:
+endif
+if input < 0
+set cstring t3 NEGATIVE:
+endif
+
+call t3
+call input
+
+load breakpoint
+call
+
+load wrap
+call
